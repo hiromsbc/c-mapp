@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Links from "./pages/Links";
+import NotFound from './pages/NotFound';
 
 class App extends Component {
   render () {
@@ -12,7 +13,8 @@ class App extends Component {
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<Home />} />
-          <Route path={"/links"} element={<Links/>}/>
+          <Route path={"/links"} element={<Links />}/>
+          <Route path={"/*"} element={<NotFound />}/>
         </Routes>
       </BrowserRouter>
     )

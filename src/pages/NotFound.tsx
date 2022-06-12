@@ -4,17 +4,14 @@ import { Link } from "react-router-dom";
 import { FrontVar } from '../components/FrontBar';
 import { Container } from 'react-bootstrap';
 
-export default class Home extends React.Component {
+export default class NotFound extends React.Component {
   render() {
     return (
         <Container>
             <FrontVar />
-            <h1>ホーム</h1>
+            <h1>Not Found</h1>
             <div>
-                新規登録は<Link to={`/register/`}>こちら</Link>
-            </div>
-            <div>
-                <Link to={"/links"}>リンク集</Link>
+                そのページは存在しません。
             </div>
       </Container>
     )
