@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
 import { FrontVar } from '../components/FrontBar';
 import { Container } from 'react-bootstrap';
