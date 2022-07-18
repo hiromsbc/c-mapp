@@ -16,7 +16,9 @@ export const Home = () => {
 
   const [paramAddress1, setParamAddress1] = useState("");
 
-  const [point1, setPoint1] = useState<[]>();
+  const [resultLat, setResultLat] = useState(0);
+
+  const [resultLng, SetResultLng] = useState(0);
 
   const changeParamAddress1 = (event: any) =>  {
     setParamAddress1(event.target.value);
@@ -32,8 +34,9 @@ export const Home = () => {
     }
 
     axios.get(path + paramAddress1).then((res) => {
-      setPoint1(res.data[0].geometry.coordinates);
-      console.log(point1);
+      setResultLat(res.data[0].geometry.coordinates[1]);
+      SetResultLng(res.data[0].geometry.coordinates[0]);
+      console.log(resultLat, resultLng);
     });
   }
 
@@ -56,7 +59,12 @@ export const Home = () => {
           />
         </Row>
         <Row>
-        <MapContainer center={position} zoom={13} style={mapStyle}>
+        <MapContainer
+          id={"map"}
+          center={position}
+          zoom={13}
+          style={mapStyle}
+        >
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
