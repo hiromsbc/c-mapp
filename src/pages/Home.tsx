@@ -6,14 +6,17 @@ import { Container, Row } from 'react-bootstrap';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { LatLng } from "leaflet";
 import { SearchForm } from '../components/SearchForm';
+import axios from 'axios';
 
 export const Home = () => {
 
   const position = new LatLng(35.684361712950285, 139.7535865201787);
 
-//    const path = "https://msearch.gsi.go.jp/address-search/AddressSearch?q=";
+  const path = "https://msearch.gsi.go.jp/address-search/AddressSearch?q=";
 
   const [paramAddress1, setParamAddress1] = useState("");
+
+  const [point1, setPoint1] = useState<[]>();
 
   const changeParamAddress1 = (event: any) =>  {
     setParamAddress1(event.target.value);
@@ -24,7 +27,14 @@ export const Home = () => {
   };
 
   const searchParam = () => {
-    console.log(paramAddress1);
+    if (paramAddress1.length === 0) {
+      return null;
+    }
+
+    axios.get(path + paramAddress1).then((res) => {
+      setPoint1(res.data[0].geometry.coordinates);
+      console.log(point1);
+    });
   }
 
 
