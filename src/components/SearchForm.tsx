@@ -4,6 +4,9 @@ import { Button, Col, Container, Form as BaseForm, Row } from "react-bootstrap";
 export type SearchFormProps = {
     paramAddress1: string;
     paramAddress2?: string;
+    changeParamAddress1: any;
+    clear: any;
+    search: any;
 }
 
 export const SearchForm: React.FC<SearchFormProps> = (props) => {
@@ -16,6 +19,8 @@ export const SearchForm: React.FC<SearchFormProps> = (props) => {
                             name={"paramAddress1"}
                             placeholder={"住所１"}
                             type={"text"}
+                            value={props.paramAddress1}
+                            onChange={props.changeParamAddress1}
                         />
                     </Col>
                     {/*<Col>
@@ -27,14 +32,14 @@ export const SearchForm: React.FC<SearchFormProps> = (props) => {
                     </Col>*/}
                     <Col>
                         <Button
-                            type="submit"
+                            onClick={props.search}
                         >
                             Search
                         </Button>
                         {"  "}
                         <Button
                             variant="secondary"
-                            type="reset"
+                            onClick={props.clear}
                         >
                             Clear
                         </Button>

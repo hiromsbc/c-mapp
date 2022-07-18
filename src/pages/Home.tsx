@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import "leaflet/dist/leaflet.css"
 
 import { FrontVar } from '../components/FrontBar';
@@ -13,8 +13,20 @@ export const Home = () => {
 
 //    const path = "https://msearch.gsi.go.jp/address-search/AddressSearch?q=";
 
-
   const [paramAddress1, setParamAddress1] = useState("");
+
+  const changeParamAddress1 = (event: any) =>  {
+    setParamAddress1(event.target.value);
+  };
+
+  const clearParam = () => {
+    setParamAddress1("");
+  };
+
+  const searchParam = () => {
+    console.log(paramAddress1);
+  }
+
 
   const mapStyle= {
     height: "75vh"
@@ -28,6 +40,9 @@ export const Home = () => {
         <Row>
           <SearchForm 
             paramAddress1={paramAddress1}
+            changeParamAddress1={changeParamAddress1}
+            clear={clearParam}
+            search={searchParam}
           />
         </Row>
         <Row>
