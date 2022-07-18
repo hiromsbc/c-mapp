@@ -4,8 +4,6 @@ import { Button, Col, Container, Form as BaseForm, Row } from "react-bootstrap";
 export type SearchFormProps = {
     paramAddress1: string;
     paramAddress2?: string;
-    onClick?: React.MouseEventHandler
-
 }
 
 export const SearchForm: React.FC<SearchFormProps> = (props) => {
@@ -14,16 +12,31 @@ export const SearchForm: React.FC<SearchFormProps> = (props) => {
             <BaseForm style={{margin: 10}}>
                 <Row>
                     <Col>
-                        <BaseForm.Control placeholder="住所１" />
+                        <BaseForm.Control
+                            name={"paramAddress1"}
+                            placeholder={"住所１"}
+                            type={"text"}
+                        />
                     </Col>
-                    <Col>
-                        <BaseForm.Control placeholder="住所２" />
-                    </Col>
+                    {/*<Col>
+                        <BaseForm.Control
+                            name={"paramAddress2"}
+                            placeholder={"住所２"}
+                            type={"text"}
+                        />
+                    </Col>*/}
                     <Col>
                         <Button
-                            onClick={props.onClick}
+                            type="submit"
                         >
                             Search
+                        </Button>
+                        {"  "}
+                        <Button
+                            variant="secondary"
+                            type="reset"
+                        >
+                            Clear
                         </Button>
                     </Col>
                 </Row>

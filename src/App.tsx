@@ -2,7 +2,7 @@ import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
+import { Home } from "./pages/Home";
 import Links from "./pages/Links";
 import NotFound from './pages/NotFound';
 
