@@ -35,6 +35,8 @@ export const Home = () => {
 
   const clearParam = () => {
     setParamAddress1("");
+    setResultLat(35.684361712950285);
+    SetResultLng(139.7535865201787);
   };
 
   const searchParam = () => {
