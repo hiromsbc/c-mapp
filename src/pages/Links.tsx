@@ -11,7 +11,7 @@ export default class Links extends React.Component {
           <FrontVar />
         </Row>
         <Row>
-          <Table striped bordered hover>
+          {/* <Table striped bordered hover>
             <thead>
               <tr>
                 <th>#</th>
@@ -26,7 +26,7 @@ export default class Links extends React.Component {
                 <td>作者HP</td>
               </tr>
             </tbody>
-          </Table>
+          </Table> */}
         </Row>
       </Container>
     )
