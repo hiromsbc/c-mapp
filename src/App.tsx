@@ -12,7 +12,6 @@ class App extends Component {
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<Home />} />
-          <Route path={"/links"} element={<Links />}/>
           <Route path={"/*"} element={<NotFound />}/>
         </Routes>
       </BrowserRouter>
